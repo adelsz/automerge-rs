@@ -387,6 +387,7 @@ pub(crate) struct Op {
 impl Op {
     pub(crate) fn add_succ(&mut self, op: &Op) {
         self.succ.push(op.id);
+        self.succ.sort();
         if let OpType::Put(ScalarValue::Counter(Counter {
             current,
             increments,
